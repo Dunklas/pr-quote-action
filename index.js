@@ -13,9 +13,17 @@ const getQuote = () => {
         })
 }
 
+const onError = (error, allowFailure) => {
+    console.warn(`Failed to post quote: ${error}`)
+    if (allowFailure) {
+        core.setFailed(error);
+    }
+}
+
 const run = async () => {
     try {
         const githubToken = core.getInput('github-token');
+        const allowFailure = core.getInput('allow-failure');
         if (github.context.eventName != 'pull_request') {
             core.setFailed('PR Quoter can only be used on pull_request events');
             return;
@@ -23,8 +31,7 @@ const run = async () => {
 
         const quote = await getQuote()
             .catch(error => {
-                core.setFailed(error);
-                return;
+                return onError(error, allowFailure);
             })
 
         const prNumber = github.context.payload.pull_request.number;
@@ -35,7 +42,7 @@ const run = async () => {
             body: `"*${quote.content}*"  \n- ${quote.author}`
         });
     } catch (error) {
-        core.setFailed(error.message);
+        onError(error, allowFailure);
     }
 }
 

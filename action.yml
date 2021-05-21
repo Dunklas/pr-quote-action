@@ -1,9 +1,15 @@
-name: 'Pull Request Quotes'
-description: 'This action will post random quotes to your pull requests'
+name: 'Random pull request quotes'
+description: 'This github action will post random quotes to pull requests'
+branding:
+  icon: 'book-open'
+  color: 'green'
 inputs:
   github-token:
     description: 'Github token'
     required: true
+  allow-failure:
+    description: 'If provided, the action will fail on any error (such as failed to fetch a random quote)'
+    default: false
 runs:
   using: 'node12'
   main: 'index.js'
