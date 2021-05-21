@@ -1,9 +1,9 @@
-name: 'Pull request comment (with cat)'
-description: 'Make a pull request comment, together with a random cat image'
+name: 'Pull Request Quotes'
+description: 'This action will post random quotes to your pull requests'
 inputs:
   github-token:
     description: 'Github token'
     required: true
 runs:
-  using: 'node12'
+  using: 'node14'
   main: 'index.js'
