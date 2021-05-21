@@ -1,0 +1,9 @@
+name: 'Pull request comment (with cat)'
+description: 'Make a pull request comment, together with a random cat image'
+inputs:
+  github-token:
+    description: 'Github token'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

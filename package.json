@@ -1,5 +1,5 @@
 {
-  "name": "cat-pr-comment-action",
+  "name": "pr-quote-action",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/core": "^1.2.7",
-    "@actions/github": "^5.0.0"
+    "@actions/core": "1.2.7",
+    "@actions/github": "5.0.0"
   }
 }
