@@ -32,7 +32,7 @@ const run = async () => {
         octokit.rest.issues.createComment({
             ...github.context.repo,
             issue_number: prNumber,
-            body: `"*${quote.content}*"  \n - ${quote.author}`
+            body: `"*${quote.content}*"  \n- ${quote.author}`
         });
     } catch (error) {
         core.setFailed(error.message);
