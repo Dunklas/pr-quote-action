@@ -3,7 +3,7 @@ const github = require('@actions/github');
 const fetch = require('node-fetch');
 
 const getQuote = () => {
-    const baseUrl = 'api.quotable.io';
+    const baseUrl = 'http://api.quotable.io';
     return fetch(`${baseUrl}/random`)
         .then(response => {
             if (!response.ok) {
